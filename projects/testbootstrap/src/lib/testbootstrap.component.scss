@@ -1,0 +1,10 @@
+@import '../styles.scss';
+@import '~bootstrap/scss/bootstrap';
+
+.test-primary {
+    background-color: $primary;
+}
+
+.test-secondary {
+    background-color: $secondary;
+}

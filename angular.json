@@ -2,5 +2,60 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "testbootstrap": {
+      "projectType": "library",
+      "root": "projects/testbootstrap",
+      "sourceRoot": "projects/testbootstrap/src",
+      "prefix": "ui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/testbootstrap/tsconfig.lib.json",
+            "project": "projects/testbootstrap/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/testbootstrap/src/test.ts",
+            "tsConfig": "projects/testbootstrap/tsconfig.spec.json",
+            "karmaConfig": "projects/testbootstrap/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/testbootstrap/tsconfig.lib.json",
+              "projects/testbootstrap/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }, 
+    "storybook": {
+      "projectType": "library",
+      "root": "projects/testbootstrap",
+      "sourceRoot": "projects/testbootstrap/src",
+      "prefix": "ui",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/testbootstrap/tsconfig.lib.json",
+            "project": "projects/testbootstrap/ng-package.json",
+            "styles": [], 
+            "scripts": [],
+            "outputPath": "dist/storybook"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "testbootstrap"
 }

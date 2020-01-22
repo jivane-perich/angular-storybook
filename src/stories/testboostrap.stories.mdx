@@ -1,0 +1,43 @@
+import { moduleMetadata } from '@storybook/angular';
+import { Story, Meta } from '@storybook/addon-docs/blocks';
+
+import { linkTo } from '@storybook/addon-links';
+import { text, withKnobs } from '@storybook/addon-knobs';
+
+import { TestbootstrapModule, TestbootstrapComponent } from '../../projects/testbootstrap/src/public-api.ts'
+
+# Storybook Docs for Angular
+
+Storybook supports every major view layer:
+React, Vue, Angular, Ember, React Native, etc.
+
+Storybook Docs does too.
+
+<Story id="welcome--to-storybook" height="400px" />
+
+Hallelujah! Angular is working out of the box without modification.
+How you like them apples?!
+
+## Component Declaration
+
+Just like in React, we first declare our component.
+
+<Meta title="Addon/Docs" decorators={[withKnobs, moduleMetadata({ })]} />
+
+This declaration doesn't show up in the MDX output.
+
+## MDX Stories
+
+
+<Story name="with text">
+  {{
+    template: `<ui-testbootstrap></ui-testbootstrap>`,
+    moduleMetadata : {
+      imports: [ 
+        TestbootstrapModule
+      ]
+      
+    }
+  }}
+</Story>
+
