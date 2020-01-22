@@ -1,27 +1,25 @@
 # AngularStorybook
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+This sample project goal is to reproduce an issue with storybook for debug purpose.
 
-## Development server
+Run `npm run storybook` or `yarn storybook` to start a local storybook.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Only one story is defined : `testbootstrap.stories.mdx`
 
-## Code scaffolding
+The goal of this story is to display a themable component (here, 2 divs) using $primary and $secondary bootstrap variable.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Testbootstrapcomponent
 
-## Build
+A basic themable component, with 2 div with 3 sets of colors :
+- bootstrap default : blue & grey
+- default theme: green & yellow
+- theme loaded by storybook : red & orange
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Problem
 
-## Running unit tests
+Case 1 (bootstrap default) and 2 (default theme) are working correctly.
+But, I can't surcharge the theme using scss inline loader (defined in preset.js)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Expected behavior: 
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+scss-loader.scss is taken in account during sass compilation (variable are used and available in component), story display component in red & orange.
